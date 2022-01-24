@@ -1,7 +1,39 @@
 #include <stdio.h>
-int check();
-void board();
 char tile[10] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+void board();
+void board(){
+    printf("     |     |     \n");
+    printf("  %c  |  %c  |  %c \n", tile[1], tile[2], tile[3]);
+    printf("_____|_____|_____\n");
+    printf("     |     |     \n");
+    printf("  %c  |  %c  |  %c \n", tile[4], tile[5], tile[6]);
+    printf("_____|_____|_____\n");
+    printf("     |     |     \n");
+    printf("  %c  |  %c  |  %c \n", tile[7], tile[8], tile[9]);
+    printf("     |     |     \n\n");}
+
+int check();
+int check(){
+    if (tile[1] == tile[2] && tile[2] == tile[3])
+        return 1;
+    else if (tile[4] == tile[5] && tile[5] == tile[6])
+        return 1;
+    else if (tile[7] == tile[8] && tile[8] == tile[9])
+        return 1;
+    else if (tile[1] == tile[4] && tile[4] == tile[7])
+        return 1;
+    else if (tile[2] == tile[5] && tile[5] == tile[8])
+        return 1;
+    else if (tile[3] == tile[6] && tile[6] == tile[9])
+        return 1;
+    else if (tile[1] == tile[5] && tile[5] == tile[9])
+        return 1;
+    else if (tile[3] == tile[5] && tile[5] == tile[7])
+        return 1;
+    else if (tile[1] != '1' && tile[2] != '2' && tile[3] != '3' && tile[4] != '4' && tile[5] != '5' && tile[6] != '6' && tile[7] != '7' && tile[8] != '8' && tile[9] != '9')
+        return 0;
+    else
+        return  - 1;}
 
 int main(){
     int player = 1, choice, flag;
@@ -47,42 +79,4 @@ int main(){
         printf("Player %d has won the game!", player-1);
     else
         printf("The game has resulted in a draw");
-    return 0;
-
-
-int check()
-{
-    if (tile[1] == tile[2] && tile[2] == tile[3])
-        return 1;
-    else if (tile[4] == tile[5] && tile[5] == tile[6])
-        return 1;
-    else if (tile[7] == tile[8] && tile[8] == tile[9])
-        return 1;
-    else if (tile[1] == tile[4] && tile[4] == tile[7])
-        return 1;
-    else if (tile[2] == tile[5] && tile[5] == tile[8])
-        return 1;
-    else if (tile[3] == tile[6] && tile[6] == tile[9])
-        return 1;
-    else if (tile[1] == tile[5] && tile[5] == tile[9])
-        return 1;
-    else if (tile[3] == tile[5] && tile[5] == tile[7])
-        return 1;
-    else if (tile[1] != '1' && tile[2] != '2' && tile[3] != '3' && tile[4] != '4' && tile[5] != '5' && tile[6] != '6' && tile[7] != '7' && tile[8] != '8' && tile[9] != '9')
-        return 0;
-    else
-        return  - 1;
-}
-
-void board()
-{
-    printf("     |     |     \n");
-    printf("  %c  |  %c  |  %c \n", tile[1], tile[2], tile[3]);
-    printf("_____|_____|_____\n");
-    printf("     |     |     \n");
-    printf("  %c  |  %c  |  %c \n", tile[4], tile[5], tile[6]);
-    printf("_____|_____|_____\n");
-    printf("     |     |     \n");
-    printf("  %c  |  %c  |  %c \n", tile[7], tile[8], tile[9]);
-    printf("     |     |     \n\n");
-}
+    return 0;}
